@@ -1,24 +1,47 @@
-# vue-with-vuex-tut
+```JS
+// main.js
 
-## Project setup
-```
-npm install
+import axios from 'axios';
+import { createApp } from 'vue'
+import { createStore } from "vuex";
+
+import App from './App.vue'
+
+const store = createStore({
+    state() {
+        return {
+            counter: 6,
+            history: [0]
+        }
+    },
+    mutations: { // mutation never contain async code that way come with action 
+        addToCounter(state, payload) {
+            console.log('hi');
+            state.counter = state.counter + payload
+            state.history.push(state.counter)
+        },
+        subTractFromCounter(state, payload) {
+            console.log('minimise');
+            state.counter = state.counter - payload
+        }
+    },
+    actions: {
+        async addRandomNumber(context){
+            const data = await axios.get("https://www.random.org/integers/?num=1&min=-1000&max=1000&col=1&base=10&format=plain&rnd=new");
+            console.log(data);
+            context.commit('subTractFromCounter',data.data)
+
+        }
+    }
+
+});
+
+const app = createApp(App);
+
+app.use(store)
+
+app.mount('#app')
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<img width="1147" alt="Screenshot 2021-05-08 at 1 16 42 AM" src="https://user-images.githubusercontent.com/58136550/117498084-1f9b5f80-af9b-11eb-9acb-d1dd9be88fcc.png">

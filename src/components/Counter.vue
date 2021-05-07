@@ -5,17 +5,14 @@
     <button @click="subTractFromCounter(parseInt(value))">-</button>
     <input type="number" v-model="value" />
     <button @click="addToCounter(parseInt(value))">+</button>
-
     <div>
       <button class="btn" @click="addRandomNumber">Add By Random Number</button>
     </div>
   </div>
 </template>
 
-
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
-
 export default {
   name: "Counter",
   data() {
