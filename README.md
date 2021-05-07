@@ -44,4 +44,4 @@ app.mount('#app')
 ```
 
 
-<img width="1147" alt="Screenshot 2021-05-08 at 1 16 42 AM" src="https://user-images.githubusercontent.com/58136550/117498084-1f9b5f80-af9b-11eb-9acb-d1dd9be88fcc.png">
+<img width="797" alt="Screenshot 2021-05-08 at 1 20 20 AM" src="https://user-images.githubusercontent.com/58136550/117498413-97698a00-af9b-11eb-8900-579586734416.png">
